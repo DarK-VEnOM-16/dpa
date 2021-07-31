@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title%}Home {%endblock title%}
+{%block body%}
+
+   {% for story in data %}
+   <h2>
+   <div class="card">
+      <span class="college_name">
+                {{story.name}}
+            </span>
+            <span class="country_name">
+                {{story.continent}}
+            </span>
+            <span class="expense">
+                Expenses: {{story.expense}}
+            </span>
+            <span class="deadline">
+                DeadLine: {{story.deadline}}
+            </span>
+            <a class="alert" href="#">
+                Apply
+            </a>
+   <div>
+   </h2>
+   <p>{{ story.tease|truncatewords:"100" }}</p>
+   {% endfor %}
+
+{%endblock body%}
