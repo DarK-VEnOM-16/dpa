@@ -19,7 +19,7 @@
     body{
         padding:0px 0px;
         margin: 0;
-        background-image: url("static/Electrical.jpg");
+        background-image: url("../static/Electrical.jpg");
         background-repeat: no-repeat;
         background-size: cover;
 
@@ -43,6 +43,7 @@
         display: flex;
         flex-direction: row;
         list-style: none;
+        flex-wrap:wrap;
     }
     .logo
     {
@@ -91,15 +92,13 @@
     }
     .continent
     {
-        margin-right: 50px;
-        margin-left: 50px;
-
+        justify-content:center;
     }
     .continent li
     {
         background-color: #007bff;
         padding: 10px 20px;
-        width: 13%;
+        width:180px;
         text-align: center;
         color: rgba(221,236,255,255);
         border-radius: 5px;
@@ -108,6 +107,7 @@
     .continent li a
     {
         color: aliceblue;
+        font-size:20px;
     }
     .continent .active
     {
@@ -136,7 +136,13 @@
         background-color: #ffffff;
         overflow:hidden;
         justify-content:space-between;
-        
+        border-radius:5px;
+        transition: 0.3s;
+
+    }
+    .card:hover
+    {
+        transform: scale(1.05);
     }
     .college_name
     {
@@ -161,6 +167,9 @@
         height: 20%;
         line-height: 2;
     }
+    .college_name::first-letter {
+    font-size:22px;
+    }
     .expense
     {
         color: #96989a;
@@ -182,6 +191,12 @@
         height: 20%;
         line-height: 2;
         border-top: 2px solid #e2e2e2;
+        transition: 0.2s;
+    }
+    .alert:hover
+    {
+        transform:scale(1.1);
+        text-shadow: 1px 1px 2px pink;
     }
     .deadline{
          display:inline-block;
@@ -192,6 +207,9 @@
         color:#ff6565;
         font-size:15px;
 
+    }
+    .upfont{
+        font-size:20px;
     }
     </style>
     
@@ -229,33 +247,35 @@
     </nav>
     </div>
     <ul class="continent">
-        <li class="active">
-           <a> All</a>
+        <li id="all">
+           <a href="../"> All</a>
         </li>
-        <li>
-            <a>North America</a>
+        <li id="na">
+            <a href="../northamerica/">North America</a>
         </li>
-        <li>
-            <a>South America</a>
+        <li id="sa">
+            <a href="../southamerica/">South America</a>
         </li>
-        <li>
-            <a>Asia</a>
+        <li id="as">
+            <a href="../asia/">Asia</a>
         </li>
-        <li>
-            <a>Europe</a>
+        <li id="eu">
+            <a href="../europe/">Europe</a>
         </li>
-        <li>
-            <a>Australia</a>
+        <li id="aus">
+            <a href="../australia/">Australia</a>
         </li>
 
     </ul>
     <div class="container">
         {%block body%} {%endblock body%}
     </div>
-    
     <script>
-
+    {%block script%}
+    {%endblock script%}
     </script>
+
+    
     
 </body>
 </html>

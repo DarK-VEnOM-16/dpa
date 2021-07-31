@@ -1,28 +1,35 @@
 {% extends "base.html" %}
 {% block title%}Home {%endblock title%}
 {%block body%}
+{% if data|length > 0 %}
 
    {% for story in data %}
    <h2>
-   <div class="card">
-      <span class="college_name">
-                {{story.name}}
-            </span>
-            <span class="country_name">
-                {{story.continent}}
-            </span>
-            <span class="expense">
-                Expenses: {{story.expense}}
-            </span>
-            <span class="deadline">
-                DeadLine: {{story.deadline}}
-            </span>
-            <a class="alert" href="#">
-                Apply
-            </a>
+    <div class="card">
+        <span class="college_name">
+            {{story.name}}
+        </span>
+        <span class="country_name">
+            {{story.continent}}
+        </span>
+        <span class="expense">
+            Expenses: {{story.expense}}
+        </span>
+        <span class="deadline">
+            DeadLine: {{story.deadline}}
+        </span>
+        <a class="alert" href="#">
+            Apply
+        </a>
    <div>
    </h2>
-   <p>{{ story.tease|truncatewords:"100" }}</p>
    {% endfor %}
 
+{% else %}
+   <h1 style="color:cyan;">This is currently empty.</h1>
+   {% endif %}
+
 {%endblock body%}
+{% block script%}
+    {{cont}}.classList.add('active')
+{% endblock script%}
